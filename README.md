@@ -2,45 +2,45 @@
   <img src="lclogo.png">
 </p>
 
-# LeetCode-Topicwise-Solutions
+# LeetCode
 
 My solutions to algorithmic problems in [leetcode](https://leetcode.com/problemset/algorithms/) written in **C++** and **Python**
 
 ## Algorithms
 
-* [Bit Manipulation](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#bit-manipulation)
-* [Array](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#array)
-* [String](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#string)
-* [Linked List](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#linked-list)
-* [Stack](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#stack)
-* [Queue](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#queue)
-* [Heap](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#heap)
-* [Tree](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#tree)
-* [Hash Table](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#hash-table)
-* [Math](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#math)
-* [Two Pointers](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#two-pointers)
-* [Sort](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#sort)
-* [Recursion](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#recursion)
-* [Binary Search](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#binary-search)
-* [Binary Search Tree](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#binary-search-tree)
-* [Breadth-First Search](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#breadth-first-search)
-* [Depth-First Search](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#depth-first-search)
-* [Backtracking](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#backtracking)
-* [Dynamic Programming](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#dynamic-programming)
-* [Greedy](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#greedy)
-* [Graph](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#graph)
-* [Geometry](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#geometry)
-* [Simulation](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#simulation)
-* [Design](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#design)
+* [Bit Manipulation](https://github.com/VenkataAnilKumar/LeetCode#bit-manipulation)
+* [Array](https://github.com/VenkataAnilKumar/LeetCode#array)
+* [String](https://github.com/VenkataAnilKumar/LeetCode#string)
+* [Linked List](https://github.com/VenkataAnilKumar/LeetCode#linked-list)
+* [Stack](https://github.com/VenkataAnilKumar/LeetCode#stack)
+* [Queue](https://github.com/VenkataAnilKumar/LeetCode#queue)
+* [Heap](https://github.com/VenkataAnilKumar/LeetCode#heap)
+* [Tree](https://github.com/VenkataAnilKumar/LeetCode#tree)
+* [Hash Table](https://github.com/VenkataAnilKumar/LeetCode#hash-table)
+* [Math](https://github.com/VenkataAnilKumar/LeetCode#math)
+* [Two Pointers](https://github.com/VenkataAnilKumar/LeetCode#two-pointers)
+* [Sort](https://github.com/VenkataAnilKumar/LeetCode#sort)
+* [Recursion](https://github.com/VenkataAnilKumar/LeetCode#recursion)
+* [Binary Search](https://github.com/VenkataAnilKumar/LeetCode#binary-search)
+* [Binary Search Tree](https://github.com/VenkataAnilKumar/LeetCode#binary-search-tree)
+* [Breadth-First Search](https://github.com/VenkataAnilKumar/LeetCode#breadth-first-search)
+* [Depth-First Search](https://github.com/VenkataAnilKumar/LeetCode#depth-first-search)
+* [Backtracking](https://github.com/VenkataAnilKumar/LeetCode#backtracking)
+* [Dynamic Programming](https://github.com/VenkataAnilKumar/LeetCode#dynamic-programming)
+* [Greedy](https://github.com/VenkataAnilKumar/LeetCode#greedy)
+* [Graph](https://github.com/VenkataAnilKumar/LeetCode#graph)
+* [Geometry](https://github.com/VenkataAnilKumar/LeetCode#geometry)
+* [Simulation](https://github.com/VenkataAnilKumar/LeetCode#simulation)
+* [Design](https://github.com/VenkataAnilKumar/LeetCode#design)
 
 ## Database
 
-* [SQL](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#sql)
+* [SQL](https://github.com/VenkataAnilKumar/LeetCode#sql)
 
 
 ## Shell
 
-* [Shell Script](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#shell-script)
+* [Shell Script](https://github.com/VenkataAnilKumar/LeetCode#shell-script)
 
 ## Reference
 
