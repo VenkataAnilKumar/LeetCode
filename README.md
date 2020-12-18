@@ -8,40 +8,40 @@ My solutions to algorithmic problems in [leetcode](https://leetcode.com/problems
 
 ## Algorithms
 
-* [Bit Manipulation](https://github.com/VenkataAnilKumar/LeetCode-Solutions#bit-manipulation)
-* [Array](https://github.com/VenkataAnilKumar/LeetCode-Solutions#array)
-* [String](https://github.com/VenkataAnilKumar/LeetCode-Solutions#string)
-* [Linked List](https://github.com/VenkataAnilKumar/LeetCode-Solutions#linked-list)
-* [Stack](https://github.com/VenkataAnilKumar/LeetCode-Solutions#stack)
-* [Queue](https://github.com/VenkataAnilKumar/LeetCode-Solutions#queue)
-* [Binary Heap](https://github.com/VenkataAnilKumar/LeetCode-Solutions#binary-heap)
-* [Tree](https://github.com/VenkataAnilKumar/LeetCode-Solutions#tree)
-* [Hash Table](https://github.com/VenkataAnilKumar/LeetCode-Solutions#hash-table)
-* [Math](https://github.com/VenkataAnilKumar/LeetCode-Solutions#math)
-* [Two Pointers](https://github.com/VenkataAnilKumar/LeetCode-Solutions#two-pointers)
-* [Sort](https://github.com/VenkataAnilKumar/LeetCode-Solutions#sort)
-* [Recursion](https://github.com/VenkataAnilKumar/LeetCode-Solutions#recursion)
-* [Binary Search](https://github.com/VenkataAnilKumar/LeetCode-Solutions#binary-search)
-* [Binary Search Tree](https://github.com/VenkataAnilKumar/LeetCode-Solutions#binary-search-tree)
-* [Breadth-First Search](https://github.com/VenkataAnilKumar/LeetCode-Solutions#breadth-first-search)
-* [Depth-First Search](https://github.com/VenkataAnilKumar/LeetCode-Solutions#depth-first-search)
-* [Backtracking](https://github.com/VenkataAnilKumar/LeetCode-Solutions#backtracking)
-* [Dynamic Programming](https://github.com/VenkataAnilKumar/LeetCode-Solutions#dynamic-programming)
-* [Greedy](https://github.com/VenkataAnilKumar/LeetCode-Solutions#greedy)
-* [Graph](https://github.com/VenkataAnilKumar/LeetCode-Solutions#graph)
-* [Geometry](https://github.com/VenkataAnilKumar/LeetCode-Solutions#geometry)
-* [Simulation](https://github.com/VenkataAnilKumar/LeetCode-Solutions#simulation)
-* [Design](https://github.com/VenkataAnilKumar/LeetCode-Solutions#design)
-* [Concurrency](https://github.com/VenkataAnilKumar/LeetCode-Solutions#concurrency)
+* [Bit Manipulation](https://github.com/VenkataAnilKumar/LeetCode#bit-manipulation)
+* [Array](https://github.com/VenkataAnilKumar/LeetCode#array)
+* [String](https://github.com/VenkataAnilKumar/LeetCode#string)
+* [Linked List](https://github.com/VenkataAnilKumar/LeetCode#linked-list)
+* [Stack](https://github.com/VenkataAnilKumar/LeetCode#stack)
+* [Queue](https://github.com/VenkataAnilKumar/LeetCode#queue)
+* [Binary Heap](https://github.com/VenkataAnilKumar/LeetCode#binary-heap)
+* [Tree](https://github.com/VenkataAnilKumar/LeetCode#tree)
+* [Hash Table](https://github.com/VenkataAnilKumar/LeetCode#hash-table)
+* [Math](https://github.com/VenkataAnilKumar/LeetCode#math)
+* [Two Pointers](https://github.com/VenkataAnilKumar/LeetCode#two-pointers)
+* [Sort](https://github.com/VenkataAnilKumar/LeetCode#sort)
+* [Recursion](https://github.com/VenkataAnilKumar/LeetCode#recursion)
+* [Binary Search](https://github.com/VenkataAnilKumar/LeetCode#binary-search)
+* [Binary Search Tree](https://github.com/VenkataAnilKumar/LeetCode#binary-search-tree)
+* [Breadth-First Search](https://github.com/VenkataAnilKumar/LeetCode#breadth-first-search)
+* [Depth-First Search](https://github.com/VenkataAnilKumar/LeetCode#depth-first-search)
+* [Backtracking](https://github.com/VenkataAnilKumar/LeetCode#backtracking)
+* [Dynamic Programming](https://github.com/VenkataAnilKumar/LeetCode#dynamic-programming)
+* [Greedy](https://github.com/VenkataAnilKumar/LeetCode#greedy)
+* [Graph](https://github.com/VenkataAnilKumar/LeetCode#graph)
+* [Geometry](https://github.com/VenkataAnilKumar/LeetCode#geometry)
+* [Simulation](https://github.com/VenkataAnilKumar/LeetCode#simulation)
+* [Design](https://github.com/VenkataAnilKumar/LeetCode#design)
+* [Concurrency](https://github.com/VenkataAnilKumar/LeetCode#concurrency)
 
 ## Database
 
-* [SQL](https://github.com/VenkataAnilKumar/LeetCode-Solutions#sql)
+* [SQL](https://github.com/VenkataAnilKumar/LeetCode#sql)
 
 
 ## Shell
 
-* [Shell Script](https://github.com/VenkataAnilKumar/LeetCode-Solutions#shell-script)
+* [Shell Script](https://github.com/VenkataAnilKumar/LeetCode#shell-script)
 
 ## Reference
 
