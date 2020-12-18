@@ -1,4 +1,4 @@
-// Time:  O(n^2)
+// Time:  O(n)
 // Space: O(n)
 
 /**
@@ -12,59 +12,49 @@
 class Solution {
 public:
     void findSecretWord(vector<string>& wordlist, Master& master) {
-        vector<vector<int>> H(wordlist.size(), vector<int>(wordlist.size()));
-        for (int i = 0; i < wordlist.size(); ++i) {
-            for (int j = 0; j < wordlist.size(); ++j) {
-                H[i][j] = match(wordlist[i], wordlist[j]);
-            }
-        }
-
-        vector<int> possible(wordlist.size());
-        iota(possible.begin(), possible.end(), 0);
+        vector<int> possible(size(wordlist));
+        iota(begin(possible), end(possible), 0);
         int n = 0;
         while (n < 6) {
-            auto guess = solve(H, possible);
+            auto guess = find_guess_with_most_frequent_chars(wordlist, possible);
             n = master.guess(wordlist[guess]);
             vector<int> new_possible;
             for (const auto& j : possible) {
-                if (H[guess][j] == n) {
+                if (match(wordlist[guess], wordlist[j]) == n) {
                     new_possible.emplace_back(j);
                 }
             }
-            possible = new_possible;
+            possible = move(new_possible);
         }
     }
 
 private:
-    int solve(const vector<vector<int>>& H,
-              const vector<int>& possible) {
-
-        vector<int> min_max_group = possible;
-        int best_guess = -1; 
-        for (const auto& guess : possible) {
-            vector<vector<int>> groups(7);
-            for (const auto& j : possible) {
-                if (j != guess) {
-                    groups[H[guess][j]].emplace_back(j);
-                }
-            }
-            int max_group_i = 0;
-            for (int i = 0; i < groups.size(); ++i) {
-                if (groups[i].size() > groups[max_group_i].size()) {
-                    max_group_i = i;
-                }
-            }
-            if (groups[max_group_i].size() < min_max_group.size()) {
-                min_max_group = groups[max_group_i];
-                best_guess = guess;
+    int find_guess_with_most_frequent_chars(
+        const vector<string>& wordlist,
+        const vector<int>& possible) {
+        vector<vector<int>> count(6, vector<int>(26));
+        for (int i = 0; i < 6; ++i) {
+            for (const auto& p : possible) {
+                ++count[i][wordlist[p][i] - 'a'];
             }
         }
-        return best_guess;
+        int guess = 0, max_score = 0;
+        for (const auto& p : possible) {
+            int score = 0;
+            for (int i = 0; i < 6; ++i) {
+                score += count[i][wordlist[p][i] - 'a'];
+            }
+            if (score > max_score) {
+                max_score = score;
+                guess = p;
+            }
+        }
+        return guess;
     }
 
     int match(const string& a, const string& b) {
         int matches = 0;
-        for (int i = 0; i < a.length(); ++i) {
+        for (int i = 0; i < size(a); ++i) {
             if (a[i] == b[i]) {
                 ++matches;
             }
@@ -78,15 +68,15 @@ private:
 class Solution2 {
 public:
     void findSecretWord(vector<string>& wordlist, Master& master) {
-        vector<vector<int>> H(wordlist.size(), vector<int>(wordlist.size()));
-        for (int i = 0; i < wordlist.size(); ++i) {
-            for (int j = 0; j < wordlist.size(); ++j) {
+        vector<vector<int>> H(size(wordlist), vector<int>(size(wordlist)));
+        for (int i = 0; i < size(wordlist); ++i) {
+            for (int j = 0; j < size(wordlist); ++j) {
                 H[i][j] = match(wordlist[i], wordlist[j]);
             }
         }
 
-        vector<int> possible(wordlist.size());
-        iota(possible.begin(), possible.end(), 0);
+        vector<int> possible(size(wordlist));
+        iota(begin(possible), end(possible), 0);
         int n = 0;
         while (n < 6) {
             auto guess = solve(H, possible);
@@ -97,7 +87,7 @@ public:
                     new_possible.emplace_back(j);
                 }
             }
-            possible = new_possible;
+            possible = move(new_possible);
         }
     }
 
@@ -105,7 +95,7 @@ private:
     int solve(const vector<vector<int>>& H,
               const vector<int>& possible) {
 
-        vector<int> min_max_group = possible;
+        int min_max_size = size(possible);
         int best_guess = -1; 
         for (const auto& guess : possible) {
             vector<vector<int>> groups(7);
@@ -115,8 +105,13 @@ private:
                 }
             }
             int max_group_i = 0;
-            if (groups[max_group_i].size() < min_max_group.size()) {
-                min_max_group = groups[max_group_i];
+            for (int i = 0; i < size(groups); ++i) {
+                if (size(groups[i]) > size(groups[max_group_i])) {
+                    max_group_i = i;
+                }
+            }
+            if (size(groups[max_group_i]) < min_max_size) {
+                min_max_size = size(groups[max_group_i]);
                 best_guess = guess;
             }
         }
@@ -125,7 +120,68 @@ private:
 
     int match(const string& a, const string& b) {
         int matches = 0;
-        for (int i = 0; i < a.length(); ++i) {
+        for (int i = 0; i < size(a); ++i) {
+            if (a[i] == b[i]) {
+                ++matches;
+            }
+        }
+        return matches;
+    }
+};
+
+// Time:  O(n^2)
+// Space: O(n)
+class Solution3 {
+public:
+    void findSecretWord(vector<string>& wordlist, Master& master) {
+        vector<vector<int>> H(size(wordlist), vector<int>(size(wordlist)));
+        for (int i = 0; i < size(wordlist); ++i) {
+            for (int j = 0; j < size(wordlist); ++j) {
+                H[i][j] = match(wordlist[i], wordlist[j]);
+            }
+        }
+
+        vector<int> possible(size(wordlist));
+        iota(begin(possible), end(possible), 0);
+        int n = 0;
+        while (n < 6) {
+            auto guess = solve(H, possible);
+            n = master.guess(wordlist[guess]);
+            vector<int> new_possible;
+            for (const auto& j : possible) {
+                if (H[guess][j] == n) {
+                    new_possible.emplace_back(j);
+                }
+            }
+            possible = move(new_possible);
+        }
+    }
+
+private:
+    int solve(const vector<vector<int>>& H,
+              const vector<int>& possible) {
+
+        int min_max_size = size(possible);
+        int best_guess = -1; 
+        for (const auto& guess : possible) {
+            vector<vector<int>> groups(7);
+            for (const auto& j : possible) {
+                if (j != guess) {
+                    groups[H[guess][j]].emplace_back(j);
+                }
+            }
+            int max_group_i = 0;  // assumed the size of the other groups equals to the size of 0-group
+            if (size(groups[max_group_i]) < min_max_size) {
+                min_max_size = size(groups[max_group_i]);
+                best_guess = guess;
+            }
+        }
+        return best_guess;
+    }
+
+    int match(const string& a, const string& b) {
+        int matches = 0;
+        for (int i = 0; i < size(a); ++i) {
             if (a[i] == b[i]) {
                 ++matches;
             }

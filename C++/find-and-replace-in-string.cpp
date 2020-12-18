@@ -4,20 +4,19 @@
 class Solution {
 public:
     string findReplaceString(string S, vector<int>& indexes, vector<string>& sources, vector<string>& targets) {
-        vector<pair<int, string>> bucket(S.size());
+        vector<pair<int, string>> bucket(S.length());
         for (int i = 0; i < indexes.size(); ++i)  {
-            if (S.find(sources[i], indexes[i]) == indexes[i]) {
-                bucket[indexes[i]] = {sources[i].size(), targets[i]};
+            if (S.compare(indexes[i], sources[i].length(), sources[i]) == 0) {
+                bucket[indexes[i]] = {sources[i].length(), targets[i]};
             }
         }
         string result;
-        int last = 0;
-        for (int i = 0; i < S.length(); ++i) {
+        for (int i = 0; i < S.length();) {
             if (bucket[i].first) {
                 result += bucket[i].second;
-                last = i + bucket[i].first;
-            } else if (i >= last) {
-                result.push_back(S[i]);
+                i += bucket[i].first;
+            } else {
+                result.push_back(S[i++]);
             }
         }
         return result;

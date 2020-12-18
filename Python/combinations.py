@@ -8,6 +8,32 @@ class Solution(object):
         :type k: int
         :rtype: List[List[int]]
         """
+        if k > n:
+            return []
+        nums, idxs = range(1, n+1), range(k)
+        result = [[nums[i] for i in idxs]]
+        while True:
+            for i in reversed(xrange(k)):
+                if idxs[i] != i+n-k:
+                    break
+            else:
+                break
+            idxs[i] += 1
+            for j in xrange(i+1, k):
+                idxs[j] = idxs[j-1]+1
+            result.append([nums[i] for i in idxs])
+        return result
+
+
+# Time:  O(k * C(n, k))
+# Space: O(k)
+class Solution2(object):
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
         result, combination = [], []
         i = 1
         while True:
@@ -24,7 +50,9 @@ class Solution(object):
         return result
 
 
-class Solution2(object):
+# Time:  O(k * C(n, k))
+# Space: O(k)
+class Solution3(object):
     def combine(self, n, k):
         """
         :type n: int

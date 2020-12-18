@@ -1,4 +1,4 @@
-// Time:  O(h * logn) = O((logn)^2)
+// Time:  O(h * h) = O((logn)^2)
 // Space: O(1)
 
 /**
@@ -13,6 +13,36 @@
 class Solution {
 public:
     int countNodes(TreeNode* root) {
+        int count = 0, h = height(root);
+        while (root) {
+            if (height(root->right) == h - 1) {
+                count += 1 << h;
+                root = root->right;
+            } else {
+                count += 1 << (h - 1);
+                root = root->left;
+            }
+            --h;
+        }
+        return count;
+    }
+
+private:
+    int height(TreeNode *root) {
+        int h = -1;
+        while (root) {
+            ++h;
+            root = root->left;
+        }
+        return h;
+    }
+};
+
+// Time:  O(h * logn) = O((logn)^2)
+// Space: O(1)
+class Solution2 {
+public:
+    int countNodes(TreeNode* root) {
         if (root == nullptr) {
             return 0;
         }
@@ -23,36 +53,39 @@ public:
             node = node->left;
             ++level;
         }
-
-        // Binary search.
-        int left = pow(2, level), right = pow(2, level + 1);
-        while (left < right) {
+        int left = pow(2, level), right = pow(2, level + 1) - 1;
+        while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (!exist(root, mid)) {
-                right = mid;
+            if (!check(root, mid)) {
+                right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
-        return left - 1;
+        return right;  // find the the first node from right exists
     }
 
+private:
     // Check if the nth node exist.
-    bool exist(TreeNode *root, int n) {
-        int k = 1;
-        while (k <= n) {
-            k <<= 1;
+    bool check(TreeNode *root, int n) {
+        //       1(1)
+        //     /      \
+        //   2(0)     3(1)   ↑
+        //  /  \      /      d
+        // 4(0) 5(1) 6(0)    ↓
+        int base = 1;
+        while (base <= n) {
+            base <<= 1;
         }
-        k >>= 2;
-
+        base >>= 2;  // base = 2^d
         TreeNode *node = root;
-        while (k > 0) {
-            if ((n & k) == 0) {
+        while (base) {
+            if ((n & base) == 0) {
                 node = node->left;
             } else {
                 node = node->right;
             }
-            k >>= 1;
+            base >>= 1;
         }
         return node != nullptr;
     }

@@ -8,6 +8,7 @@
 
 import collections
 import itertools
+import operator
 
 
 class Poly(collections.Counter):
@@ -24,7 +25,7 @@ class Poly(collections.Counter):
         return self
 
     def __sub__(self, other):
-        self.update({k: -v for k, v in other.items()})
+        self.update({k: -v for k, v in other.iteritems()})
         return self
 
     def __mul__(self, other):
@@ -47,14 +48,14 @@ class Poly(collections.Counter):
             return result
 
         result = Poly()
-        for k1, v1 in self.items():
-            for k2, v2 in other.items():
+        for k1, v1 in self.iteritems():
+            for k2, v2 in other.iteritems():
                 result.update({tuple(merge(k1, k2)): v1*v2})
         return result
 
     def eval(self, lookup):
         result = Poly()
-        for polies, c in self.items():
+        for polies, c in self.iteritems():
             key = []
             for var in polies:
                 if var in lookup:
@@ -66,12 +67,53 @@ class Poly(collections.Counter):
 
     def to_list(self):
         return ["*".join((str(v),) + k)
-                for k, v in sorted(self.items(),
+                for k, v in sorted(self.iteritems(),
                                    key=lambda x: (-len(x[0]), x[0]))
                 if v]
 
 
 class Solution(object):
+    def basicCalculatorIV(self, expression, evalvars, evalints):
+        """
+        :type expression: str
+        :type evalvars: List[str]
+        :type evalints: List[int]
+        :rtype: List[str]
+        """
+        ops = {'+':operator.add, '-':operator.sub, '*':operator.mul}
+        def compute(operands, operators):
+            right, left = operands.pop(), operands.pop()
+            operands.append(ops[operators.pop()](left, right))
+
+        def parse(s):
+            precedence = {'+':0, '-':0, '*':1}
+            operands, operators, operand = [], [], []
+            for i in xrange(len(s)):
+                if s[i].isalnum():
+                    operand.append(s[i])
+                    if i == len(s)-1 or not s[i+1].isalnum():
+                        operands.append(Poly("".join(operand)))
+                        operand = []
+                elif s[i] == '(':
+                    operators.append(s[i])
+                elif s[i] == ')':
+                    while operators[-1] != '(':
+                        compute(operands, operators)
+                    operators.pop()
+                elif s[i] in precedence:
+                    while operators and operators[-1] in precedence and \
+                          precedence[operators[-1]] >= precedence[s[i]]:
+                        compute(operands, operators)
+                    operators.append(s[i])
+            while operators:
+                compute(operands, operators)
+            return operands[-1]
+
+        lookup = dict(itertools.izip(evalvars, evalints))
+        return parse(expression).eval(lookup).to_list()
+
+
+class Solution2(object):
     def basicCalculatorIV(self, expression, evalvars, evalints):
         """
         :type expression: str

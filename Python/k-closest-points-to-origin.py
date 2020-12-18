@@ -31,14 +31,14 @@ class Solution(object):
             while left <= right:
                 pivot_idx = randint(left, right)
                 new_pivot_idx = PartitionAroundPivot(left, right, pivot_idx, nums, compare)
-                if new_pivot_idx == k - 1:
+                if new_pivot_idx == k:
                     return
-                elif new_pivot_idx > k - 1:
+                elif new_pivot_idx > k:
                     right = new_pivot_idx - 1
-                else:  # new_pivot_idx < k - 1.
+                else:  # new_pivot_idx < k.
                     left = new_pivot_idx + 1
                     
-        kthElement(points, K, lambda a, b: dist(a) < dist(b))
+        kthElement(points, K-1, lambda a, b: dist(a) < dist(b))
         return points[:K]
 
     
